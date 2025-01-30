@@ -1,0 +1,32 @@
+--- Start ---
+
+define borderTopRightRadius  = "0.25em"
+define borderTopLeftRadius  = "0.25em"
+define borderBottomLeftRadius = "0.25em"
+define borderBottomRightRadius  = "0.25em"
+
+input borderBottomLeftRadius = "Please enter border radius for bottom left border of the box"
+input borderBottomRightRadius = "Please enter border radius for bottom right border of the box"
+input borderBottomLeftRadius = "Please enter border radius for top left border of the box"
+input borderBottomRightRadius = "Please enter border radius for top right border of the box"
+
+call applyChangesToBox
+
+--- End ---
+
+
+--- Start applyChangesToBox ---
+
+    if borderRadius != default then
+        get box ID
+        apply changes to box
+    else 
+        print "Nothing changed."
+
+    if borderBottomLeftRadius != default OR borderBottomRightRadius != default OR borderBottomLeftRadius != default or borderBottomRightRadius != default then
+        get box ID
+        apply changes to box
+
+--- End applyChangesToBox ---
+
+
