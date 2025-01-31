@@ -2,6 +2,10 @@
     <h1 class="text-2xl font-semibold pt-10">Border Radius Previewer</h1>
     <p class="text-sm font-normal italic"> Unit of measurement is em. 1em = 16px</p>
     <div class="flex flex-col md:flex-row md:flex-wrap justify-center items-center w-full gap-2 py-10">
+            <div class="flex flex-col items-center justify-center gap-1">
+                <span></span>
+                <p class="pt-4 text-sm font-normal">Horizontal Values: </p>
+            </div>
             <div class="flex flex-col gap-1">
                 <label for="border-radius" class="text-sm font-semibold">Top-Left</label>
                 <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="topLeft" (wheel)="onScrollChangeTL($event)">
@@ -12,17 +16,43 @@
             </div>
             <div class="flex flex-col gap-1">
                 <label for="border-radius" class="text-sm font-semibold">Bottom-Right</label>
-                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomLeft" (wheel)="onScrollChangeBL($event)">
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomRight" (wheel)="onScrollChangeBR($event)">
             </div>
             <div class="flex flex-col gap-1">
                 <label for="border-radius" class="text-sm font-semibold">Bottom-Left</label>
-                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomRight" (wheel)="onScrollChangeBR($event)">
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomLeft" (wheel)="onScrollChangeBL($event)">
             </div>
     </div>
 
-    <div class="w-full h-full flex justify-center items-center">
-        <div id="dynamic-box" class="border-2 border-blue-500 flex justify-center items-center px-12 py-20" [style.borderRadius]="applyChanges()">
-            <span class="font-thin text-xl md:text-2xl">Preview</span>
+    <div class="flex flex-col md:flex-row md:flex-wrap justify-center items-center w-full gap-2 py-5">
+            <div class="flex flex-col items-center justify-center gap-1">
+                <span></span>
+                <p class="pt-4 text-sm font-normal">Vertical Values: </p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="border-radius" class="text-sm font-semibold">Top-Left</label>
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="topLeftV" (wheel)="onScrollChangeTLVertical($event)">
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="border-radius" class="text-sm font-semibold">Top-Right </label>
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="topRightV" (wheel)="onScrollChangeTRVertical($event)">
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="border-radius" class="text-sm font-semibold">Bottom-Right</label>
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomRightV" (wheel)="onScrollChangeBRVertical($event)">
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="border-radius" class="text-sm font-semibold">Bottom-Left</label>
+                <input class="border-0 shadow-lg focus:bg-blue-100 bg-white focus:outline-1 focus:outline-blue-500 py-1.5 px-4 rounded-xl text-sm" type="number" min="0" step="0.25" [(ngModel)]="bottomLeftV" (wheel)="onScrollChangeBLVertical($event)">
+            </div>
+    </div>
+
+    <div class="w-full h-full flex justify-center items-center gap-10">
+        <div id="dynamic-box" class="border-2 border-blue-500 flex justify-center items-center px-20 py-20" [style.borderRadius]="applyChangesBorder()">
+            <span class="font-thin text-xl md:text-2xl">4 values</span>
+        </div>
+        <div id="dynamic-box" class="border-2 border-red-500 flex justify-center items-center px-20 py-20" [style.borderRadius]="applyChanges()">
+            <span class="font-thin text-xl md:text-2xl">8 values</span>
         </div>
     </div>
 </div>
